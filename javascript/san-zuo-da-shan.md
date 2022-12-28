@@ -49,7 +49,7 @@ console.log(i); //ReferenceError：i is not defined
 
 所以使用闭包会消耗内存、不正当使用会造成内存溢出的问题，在退出函数之前，需要将不使用的局部变量全部删除。如果不是某些特定需求，在函数中创建函数是不明智的，闭包在处理速度和内存消耗方面对脚本性能具有负面影响。
 
-**`闭包的应用场景：`**
+**闭包的应用场景：**
 
 <pre class="language-typescript" data-title="循环中使用"><code class="lang-typescript"><strong>// demo1 输出 3 3 3
 </strong>for(var i = 0; i &#x3C; 3; i++) {
