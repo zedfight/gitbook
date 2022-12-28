@@ -162,58 +162,6 @@ MyObject.prototype.getMessage = function() {
 
 <figure><img src="../.gitbook/assets/closure.png" alt=""><figcaption><p>一张图看懂闭包的生命周期</p></figcaption></figure>
 
-接下来来解答一道面试题
-
-```typescript
-function test(a, b){
-  console.log(b);
-  return {
-    test: function(c) {
-      return test(c,a);
-    }
-  }
-}
-
-var a = test(100);a.test(101);a.test(102);
-var b = test(200).test(201).test(202);
-var c = test(300).test(301);c.test(302);
-
-// undefined  100  100
-// undefined  200 201
-// undefined  300 301
-```
-
 ## 2️⃣ 原型和原型链
 
-有对象的地方就有**`原型`**，每个对象都会在其内部初始化一个属性，就是prototype(原型)，原型中存储共享的属性和方法。当我们访问一个对象的属性时，js引擎会先看当前对象中是否有这个属性，如果没有的就会查找他的prototype对象是否有这个属性，如此递推下去，一直检索到 Object 内建对象。这么一个寻找的过程就形成了**`原型链`**的概念。
-
-理解原型最关键的是理清楚\_\_proto\_\_、prototype、constructor三者的关系，我们先看看几个概念：
-
-* **\_\_proto\_\_属性**在所有对象中都存在，指向其构造函数的prototype对象；**prototype对象**只存在（构造）函数中，用于存储共享属性和方法；**constructor属性**只存在于（构造）函数的prototype中，指向（构造）函数本身。
-* 一个对象或者构造函数中的**隐式原型\_\_proto\_\_**的属性值指向其构造函数的**显式原型 prototype** 属性值，关系表示为：`instance.__proto__ === instance.constructor.prototype`
-* 除了 Object，所有对象或构造函数的 prototype 均继承自 Object.prototype，原型链的顶层指向 null：`Object.prototype.__proto__ === null`
-* Object.prototype 中也有 constructor：`Object.prototype.constructor === Object`
-* 构造函数创建的对象（Object、Function、Array、普通对象等）都是 Function 的实例，它们的 \_\_proto\_\_ 均指向 Function.prototype。
-
-一知半解？半知半解？全知全解？别慌！！一张图让你彻底理解原型
-
-<figure><img src="../.gitbook/assets/prototype.png" alt=""><figcaption><p>原型关系图</p></figcaption></figure>
-
-相同的配方再来一道题考考大家
-
-```typescript
-const arr = [1, 2, 3];
-arr.__proto__ === Array.prototype; // true
-arr.__proto__.__proto__ === Object.prototype; // true
-Array.__proto__ === Function.prototype; // true
-```
-
 ## 3️⃣ 异步和单线程
-
-JavaScript 是单线程语言，意味着只有单独的一个调用栈，同一时间只能处理一个任务或一段代码。队列、堆、栈、事件循环构成了 js 的并发模型，事件循环是 JavaScript 的执行机制。
-
-为什么js是一门单线程语言呢？最初设计JS是用来在浏览器验证表单以及操控DOM元素，为了避免同一时间对同一个DOM元素进行操作从而导致不可预知的问题，JavaScript从一诞生就是单线程。
-
-既然是单线程也就意味着不存在异步，只能自上而下执行，如果代码阻塞只能一直等下去，这样导致很差的用户体验，所以事件循环的出现让 js 拥有异步的能力。
-
-<figure><img src="../.gitbook/assets/eventloop.png" alt=""><figcaption><p>事件循环liun'g't </p></figcaption></figure>
