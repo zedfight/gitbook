@@ -2,6 +2,8 @@
 
 js 作为前端的中坚力量。那么 javascript 三座大山，你知道是哪些呢？
 
+<figure><img src="../.gitbook/assets/san-zuo-da-shan.png" alt=""><figcaption></figcaption></figure>
+
 ## 1️⃣ 作用域和闭包
 
 **`作用域`** 指代码当前上下文，控制着变量和函数的可见性和生命周期。最大的作用是隔离变量，不同作用域下同名变量不会冲突。
