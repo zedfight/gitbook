@@ -2,7 +2,7 @@
 
 js 作为前端的中坚力量。那么 javascript 三座大山，你知道是哪些呢？
 
-<figure><img src="../.gitbook/assets/san-zuo-da-shan.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/js-san-zuo-da-shan.png" alt=""><figcaption></figcaption></figure>
 
 ## 1️⃣ 作用域和闭包
 
@@ -36,7 +36,7 @@ for(let i=0; i<10; i++) {
 console.log(i); //ReferenceError：i is not defined
 ```
 
-了解完作用域再来谈谈 **`闭包`：**函数A里包含了函数B，而函数B使用了函数A的变量，那么函数B被称为闭包或者闭包就是能够读取函数A内部变量的函数。
+了解完作用域再来谈谈 **`闭包`：** 函数A里包含了函数B，而函数B使用了函数A的变量，那么函数B被称为闭包或者闭包就是能够读取函数A内部变量的函数。
 
 可以看出闭包是函数作用域下的产物，闭包会随着外层函数的执行而被同时创建，它是一个函数以及其捆绑的周边环境状态的引用的组合。换而言之，**闭包是内层函数对外层函数变量的不释放**。
 
@@ -104,7 +104,7 @@ console.log(Counter.value()); /* logs 1 */
 
 {% code title="setTimeout中使用" %}
 ```typescript
-// setTimeout中使用，setTimeout(fn, number): fn 是不能带参数的。使用闭包绑定一个上下文可以在闭包中获取这个上下文的数据。
+// setTimeout(fn, number): fn 是不能带参数的。使用闭包绑定一个上下文可以在闭包中获取这个上下文的数据。
 function func(param){ return function(){ alert(param) }}
 const f1 = func(1);setTimeout(f1,1000);
 ```
@@ -112,19 +112,19 @@ const f1 = func(1);setTimeout(f1,1000);
 
 {% code title="生产者/消费者模型" %}
 ```typescript
-/*不使用闭包*/
-//生产者
+// 不使用闭包
+// 生产者
 function producer(){
     const data = new（...）
     return data
 }
-//消费者
+// 消费者
 function consumer(data){
     // do consume...
 }
 const data = producer()
 
-/*使用闭包*/
+// 使用闭包
 function process(){
     var data = new (...)
     return function consumer(){
@@ -192,7 +192,7 @@ var c = test(300).test(301);c.test(302);
 
 ## 2️⃣ 原型和原型链
 
-有对象的地方就有**`原型`**，每个对象都会在其内部初始化一个属性，就是prototype(原型)，原型中存储共享的属性和方法。当我们访问一个对象的属性时，js引擎会先看当前对象中是否有这个属性，如果没有的就会查找他的prototype对象是否有这个属性，如此递推下去，一直检索到 Object 内建对象。这么一个寻找的过程就形成了**`原型链`**的概念。
+有对象的地方就有 **`原型`**，每个对象都会在其内部初始化一个属性，就是prototype(原型)，原型中存储共享的属性和方法。当我们访问一个对象的属性时，js引擎会先看当前对象中是否有这个属性，如果没有的就会查找他的prototype对象是否有这个属性，如此递推下去，一直检索到 Object 内建对象。这么一个寻找的过程就形成了 **`原型链`** 的概念。
 
 理解原型最关键的是理清楚\_\_proto\_\_、prototype、constructor三者的关系，我们先看看几个概念：
 
@@ -217,7 +217,7 @@ Array.__proto__ === Function.prototype; // true
 
 ## 3️⃣ 异步和单线程
 
-JavaScript 是**`单线程`**语言，意味着只有单独的一个调用栈，同一时间只能处理一个任务或一段代码。队列、堆、栈、事件循环构成了 js 的并发模型，**`事件循环`**是 JavaScript 的执行机制。
+JavaScript 是 **`单线程`** 语言，意味着只有单独的一个调用栈，同一时间只能处理一个任务或一段代码。队列、堆、栈、事件循环构成了 js 的并发模型，**`事件循环`** 是 JavaScript 的执行机制。
 
 为什么js是一门单线程语言呢？最初设计JS是用来在浏览器验证表单以及操控DOM元素，为了避免同一时间对同一个DOM元素进行操作从而导致不可预知的问题，JavaScript从一诞生就是单线程。
 
