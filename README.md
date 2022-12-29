@@ -10,14 +10,6 @@
 
 如果对您的工作有所帮助您也可以请我喝杯咖啡 💰
 
-<div>
-
-<figure><img src=".gitbook/assets/wx-pay.jpg" alt=""><figcaption><p>微信支付</p></figcaption></figure>
-
- 
-
-<figure><img src=".gitbook/assets/ali-pay.jpg" alt=""><figcaption><p>支付宝支付</p></figcaption></figure>
-
-</div>
+<figure><img src=".gitbook/assets/pay.png" alt=""><figcaption></figcaption></figure>
 
 如果您也是前端爱好者，可以在 [github](https://github.com/vocoWone) 或微信【**`vocoWone`**】中与我一起交流探讨 🚀
