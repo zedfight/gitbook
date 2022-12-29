@@ -1,6 +1,6 @@
 # 🌄 三座大山
 
-作为一名前端开发，js是前端的中坚力量。那么 javascript 三座大山，你知道是哪些呢？
+js 作为前端的中坚力量。那么 javascript 三座大山，你知道是哪些呢？
 
 ## 1️⃣ 作用域和闭包
 
@@ -165,7 +165,7 @@ MyObject.prototype.getMessage = function() {
 
 <figure><img src="../.gitbook/assets/closure.png" alt=""><figcaption><p>一张图看懂闭包的生命周期</p></figcaption></figure>
 
-学完必须必牛刀小试一哈子
+学完先来一波牛刀小试
 
 ```typescript
 function test(a, b){
@@ -198,11 +198,11 @@ var c = test(300).test(301);c.test(302);
 * Object.prototype 中也有 constructor：`Object.prototype.constructor === Object`
 * 构造函数创建的对象（Object、Function、Array、普通对象等）都是 Function 的实例，它们的 \_\_proto\_\_ 均指向 Function.prototype。
 
-一知半解？半知半解？全知全解？别慌！！一张图让你彻底理解原型
+看起来是不是有点乱？？别慌！！一张图帮你整理它们之间的关系
 
 <figure><img src="../.gitbook/assets/prototype.png" alt=""><figcaption><p>原型关系图</p></figcaption></figure>
 
-相同的配方再来道题考一考
+相同的配方再来一刀
 
 ```typescript
 const arr = [1, 2, 3];
