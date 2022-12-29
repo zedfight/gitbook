@@ -163,6 +163,8 @@ MyObject.prototype.getMessage = function() {
 ```
 {% endcode %}
 
+对于闭包的概念好像懂了但又好像缺少了啥？意犹未尽。我也曾也闭包中迷失，但是看完闭包的生命周期让我重新找回自己。
+
 <figure><img src="../.gitbook/assets/closure.png" alt=""><figcaption><p>一张图看懂闭包的生命周期</p></figcaption></figure>
 
 学完先来一波牛刀小试
