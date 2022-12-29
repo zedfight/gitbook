@@ -6,7 +6,7 @@
 
 本书的初衷是为了在日新月异的前端环境下总结和归纳基础知识和深层理论。书中提供了代码示例和流程图，力求清晰易懂。若疏忽之处欢迎朋友们提 [issues](https://github.com/vocoWone/gitbook/issues)，我将第一时间改进。
 
-如果觉得写的不错的话帮忙动动手指头点个 [Star](https://github.com/vocoWone/gitbook)，您的支持是我不断更新的动力 💘
+如果觉得写的不错的话帮忙动动手指点个 [Star](https://github.com/vocoWone/gitbook)，您的支持是我不断更新的动力 💘
 
 如果对您的工作有所帮助您也可以请我喝杯咖啡 💰
 
@@ -20,4 +20,4 @@
 
 </div>
 
-如果你也是前端爱好者，可以在 [github](https://github.com/vocoWone) 或微信【**`vocoWone`**】中与我一起交流探讨 🚀
+如果您也是前端爱好者，可以在 [github](https://github.com/vocoWone) 或微信【**`vocoWone`**】中与我一起交流探讨 🚀
