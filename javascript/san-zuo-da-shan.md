@@ -53,7 +53,7 @@ console.log(i); //ReferenceError：i is not defined
 
 <pre class="language-typescript" data-title="循环中使用"><code class="lang-typescript"><strong>// demo1 输出 3 3 3
 </strong>for(var i = 0; i &#x3C; 3; i++) {
-    setTimeout(function()ty
+    setTimeout(function() {
         console.log(i);
     }, 1000);
 } 
