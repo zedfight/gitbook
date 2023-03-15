@@ -2,13 +2,13 @@
 
 <figure><img src="../.gitbook/assets/memery-management.jpg" alt=""><figcaption></figcaption></figure>
 
-内存管理是编程语言的基本能力，JavaScript 中的内存管理是通过 [V8](https://v8.dev/) 完成的。V8 的实现遵循 [ECMA-262](https://tc39.es/ecma262/) 规范，规范中没有阐述内存布局以及内存管理相关信息，所以它的原理取决于[解释器](https://v8.dev/docs/ignition)的实现。唯一肯定的是不管任何编程语言，内存的生命周期是一致的：
+内存管理是编程语言的基本能力，JavaScript 中的内存管理是通过 [V8](https://v8.dev/) 完成的。V8 的实现遵循 [ECMA-262](https://tc39.es/ecma262/) 规范，而规范中没有阐述内存布局以及内存管理相关信息，所以它的原理取决于[解释器](https://v8.dev/docs/ignition)的实现。唯一肯定的是不管任何编程语言，内存的生命周期是一致的：
 
 1. 分配所需要的内存；
 2. 使用分配的内存（读、写）；
 3. 不需要时将其释放、归还。
 
-基于此背景下本文试图通过内存的生命周期拓展 JavaScript 的内存布局知识。
+基于此背景下本文试图通过内存的生命周期拓展 JavaScript 的内存布局。
 
 开始分配内存之前需要先了解一下数据类型与数据结构。
 
@@ -34,7 +34,7 @@ JavaScript 数据类型分为**`基本类型`**与**`引用类型`**。
 * string -> number: let a = "1" => +a / \~\~a / Number(a)
 * any -> boolean: let a = {} => !a / !!a / Boolean(a)
 
-从内存角度区分基本类型与应用类型，关键在于值在内存中是否可变，基本类型更新会重新开辟空间并改变指针地址，引用类型更新不会改变指针地址而指针所指向的对象更新；从代码上看，引用类型由基本类型和 {} 组成。
+从内存角度区分基本类型与应用类型，关键在于值在内存中是否可变，基本类型更新会重新开辟空间并改变指针地址，引用类型更新不会改变指针地址但会改变指针所指向的对象；从代码上看，引用类型由基本类型和 {} 组成。
 
 ## 数据结构
 
@@ -126,7 +126,7 @@ testHeap()
 
 <figure><img src="../.gitbook/assets/oddball.png" alt=""><figcaption><p>Oddball</p></figcaption></figure>
 
-V8 中有一个特殊的原始值子集，称为 **`Oddball`**。它们在运行之前由 V8 预先分配在堆上，无论 JavaScript 程序是否实际使用到它们。从整个堆空间查看这些类型的分配，**boolean、undefined、null、空字符串分配在堆内存中且属于 Oddball 类型**。无论何时分配空间对应的内存地址永远是固定的（空字符串`@77`、null`@71`、undefined`@67`、true`@73`）。但并未找到小整数，证明**函数局部变量小整数存在栈中**（定义在全局中的小整数则是分配在堆中）。
+其实 V8 中有一个特殊的原始值子集，称为 **`Oddball`**。它们在运行之前由 V8 预先分配在堆上，无论 JavaScript 程序是否实际使用到它们。从整个堆空间查看这些类型的分配，**boolean、undefined、null、空字符串分配在堆内存中且属于 Oddball 类型**。无论何时分配空间对应的内存地址永远是固定的（空字符串`@77`、null`@71`、undefined`@67`、true`@73`）。但并未找到小整数，证明**函数局部变量小整数存在栈中，但定义在全局中的小整数则是分配在堆中**。
 
 同样都是表示 Number 类型，小整数和小数在存储上有什么区别呢？
 
@@ -237,12 +237,12 @@ JavaScript 中的**`垃圾回收策略采用分代回收的思想`**。Heap（�
 
 **新空间（New Space）**：新对象存活的地方，驻留在此处的对象称为**New Generation（新生代）**。Minor GC 作为该空间的回收机制，该空间采用 `Scavenge 算法 + 标记清除法`。
 
-* Minor GC 保持新空间的紧凑和干净，其中有一个分配指针，每当我们想为新的对象分配内存空间时，就会递增这个指针。当该指针达到新空间的末端时，就会触发一次 Minor GC。这个过程也被称为 Scavenger，它实现了 Cheney 算法。由于空间很小（1-8MB 之间）导致 Minor GC 经常被触发，所以这些对象的生命周期都很短，而且 Minor GC 过程使用并行的辅助线程，速度非常快，内存分配的成本很低。
-* 新空间由两个大小 Semi-Space 组成，为了区分二者 Minor GC 将二者命名为 from-space 和 to-space。内存分配发生在 from-space 空间，当 from-space 空间被填满时，就会触发 Minor GC。将还存活着的对象迁移到 to-space 空间，并将 from-space 和 to-space 的名字交换一下，交换后所有的对象都在 from-space 空间，to-space 空间是空的。一段时间后 from-space 又被填满时再次触发 Minor GC，第二次存活的对象将会被迁移到旧空间（Old Space），第一次存活下来的新对象被迁移到 to-space 空间，如此周而复始操作就形成了 Minor GC 的过程。
+* Minor GC 保持新空间的紧凑和干净，其中有一个分配指针，每当我们想为新的对象分配内存空间时，就会递增这个指针。当该指针达到新空间的末端时，就会触发一次 Minor GC。这个过程也被称为 **`Scavenger`**，它实现了 Cheney 算法。由于空间很小（1-8MB 之间）导致 Minor GC 经常被触发，所以这些对象的生命周期都很短，而且 Minor GC 过程使用并行的辅助线程，速度非常快，内存分配的成本很低。
+* 新空间由两个大小 Semi-Space 组成，为了区分二者 Minor GC 将二者命名为 **`from-space`** 和 **`to-space`**。内存分配发生在 from-space 空间，当 from-space 空间被填满时，就会触发 Minor GC。将还存活着的对象迁移到 to-space 空间，并将 from-space 和 to-space 的名字交换一下，交换后所有的对象都在 from-space 空间，to-space 空间是空的。一段时间后 from-space 又被填满时再次触发 Minor GC，第二次存活的对象将会被迁移到旧空间（Old Space），第一次存活下来的新对象被迁移到 to-space 空间，如此周而复始操作就形成了 Minor GC 的过程。
 
 **旧空间（Old Space）**：在新空间（New Space）被两次 Minor GC 后依旧存活的对象会被迁移到这里，驻留在此处的对象称为**Old Generation（老生代）**。 Major GC 作为该空间的回收机制，该空间采用`标记清除、标记压缩、增量标记算法`。
 
-* V8 根据某种算法计算，确定没有足够的旧空间就会触发 Major GC。Cheney 算法对于小数据量来说是完美的，但对于 Heap 中的旧空间来说是不切实际的，因为算法本身有内存开销，所以 Major GC 使用标记清除、标记整理、增量标记算法。
+* V8 根据某种算法计算，确定没有足够的旧空间就会触发 Major GC。Cheney 算法对于小数据量来说是完美的，但对于 Heap 中的旧空间来说是不切实际的，因为算法本身有内存开销，所以 Major GC 使用标记清除、标记压缩、增量标记算法。
 * 旧空间分为旧址针空间和旧数据空间：旧指针空间包含具有指向其他对象的指针的对象；旧数据空间包含数据的对象（没有指向其他对象的指针）。
 
 ## 内存泄漏
@@ -269,7 +269,7 @@ const replaceThing = function () {
       console.log("someMessage"); 
     } 
   };
-  // 如果在此处添加 `originalThing = null`，则不会泄漏。
+  // 如果在此处添加 `originalThing = null`，则不会导致内存泄漏。
 };
 setInterval(replaceThing, 1000);
 ```
@@ -325,7 +325,7 @@ setInterval/setTimeout 未被清除会导致内存泄漏。在执行 clearInterv
 
 ### 内存泄漏排查
 
-常用的内存泄漏排查方式有四种：
+若程序运行一段时间后慢慢变卡甚至崩溃，就要开始排查、定位以及修复内存泄漏，常用的内存泄漏排查方式有四种：
 
 1. 使用 Chrome 浏览器的 Performance 查看是否存在内存泄漏，使用 Memory 定位泄漏源。
 2. 使用 Node.js 提供的 process.memoryUsage 方法，查看 `heapUsed` 走势；
