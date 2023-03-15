@@ -327,7 +327,7 @@ setInterval/setTimeout 未被清除会导致内存泄漏。在执行 clearInterv
 
 若程序运行一段时间后慢慢变卡甚至崩溃，就要开始排查、定位以及修复内存泄漏，常用的内存泄漏排查方式有四种：
 
-1. 使用 Chrome 浏览器的 Performance 查看是否存在内存泄漏，使用 Memory 定位泄漏源。
+1. 使用 Chrome 浏览器的 `Performance` 查看是否存在内存泄漏，使用 `Memory` 定位泄漏源。
 2. 使用 Node.js 提供的 process.memoryUsage 方法，查看 `heapUsed` 走势；
 3. 使用`node --inspect xxx.js`启动服务并访问`chrome://inspect`，打开 Memory 定位泄漏源；
 4. 应用接入 grafana 的前提下，可通过 ab 压测观察 grafana 内存走势。
