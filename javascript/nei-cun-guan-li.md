@@ -1,6 +1,6 @@
 # 📉 内存管理
 
-<figure><img src="../.gitbook/assets/memery-management.jpg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/memery-management.png" alt=""><figcaption></figcaption></figure>
 
 内存管理是编程语言的基本能力，JavaScript 中的内存管理是通过 [V8](https://v8.dev/) 完成的。V8 的实现遵循 [ECMA-262](https://tc39.es/ecma262/) 规范，而规范中没有阐述内存布局以及内存管理相关信息，所以它的原理取决于[解释器](https://v8.dev/docs/ignition)的实现。唯一肯定的是不管任何编程语言，内存的生命周期是一致的：
 
