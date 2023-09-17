@@ -2,7 +2,7 @@
 
 
 
-<figure><img src="../.gitbook/assets/browser-multi-process-architecture.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/how-browsers-work.png" alt=""><figcaption></figcaption></figure>
 
 简单来说，浏览器的核心任务是加载用户指定的网址（URI，统一资源标识符），然后将网页资源展示在浏览器窗口中。作为前端开发者，了解浏览器的结构有助于我们在开发过程中做出最优决策。
 
