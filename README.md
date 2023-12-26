@@ -12,4 +12,4 @@
 
 <figure><img src=".gitbook/assets/pay.png" alt=""><figcaption></figcaption></figure>
 
-如果您也是前端爱好者，可以在 [github](https://github.com/vocoWone) 或微信【**`vocoWone`**】中与我一起交流探讨 🚀
+如果您也是前端爱好者，可以在 [github](https://github.com/zedfight) 或微信【**`zedfight`**】中与我一起交流探讨 🚀
