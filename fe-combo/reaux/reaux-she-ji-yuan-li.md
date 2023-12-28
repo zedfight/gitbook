@@ -1,7 +1,5 @@
 # Reaux 设计原理
 
-
-
 <figure><img src="../.gitbook/assets/Reaux设计原理封面.png" alt=""><figcaption></figcaption></figure>
 
 现代前端开发中，构建强大的应用程序需要考虑**兼容性**、**数据流管理**和**代码结构的清晰性**。为解决传统 [React](https://react.dev/) 和 [Redux](https://redux.js.org/) 应用在开发中所遇到的挑战，诞生了 [Reaux](https://github.com/FE-Combo/reaux/tree/master/packages/reaux)。[Reaux](https://github.com/FE-Combo/reaux/tree/master/packages/reaux) 旨在实现**多端数据流同构**和**代码的高可读性**。同时充分发挥了 [TypeScript](https://www.typescriptlang.org/) 的优势，使代码更加**健壮**和**可维护**。
@@ -13,8 +11,6 @@ Redux 数据的变动源于用户或平台的操作而触发相应的 action，�
 <figure><img src="../.gitbook/assets/Redux流程图.png" alt=""><figcaption></figcaption></figure>
 
 Reaux 在 Redux 的基础上进行了精简和优化，内部完成了对 Reducer、Middleware 和 Store 的封装，简化了数据流的设计。它支持 **State 按需加载**、**Middleware 动态增减**，并采用**基于 Promise 的封装实现了异步方案**。&#x20;
-
-
 
 <figure><img src="../.gitbook/assets/Reaux流程图.png" alt=""><figcaption></figcaption></figure>
 
@@ -75,42 +71,46 @@ Reaux 的状态树涵盖了多个模块状态和内置状态（@error/@loading�
 
 ### build-in component
 
-* **ErrorBoundary**: 错误边界
-  * **fallback**?: function 当错误发生时将被调用。该函数应返回一个 React 元素，用于显示错误信息或提供错误处理 UI。
-  *   使用示例
+*   **ErrorBoundary**: 错误边界
 
-      ```
-          import { ErrorBoundary } from "reaux";
-          function MyComponent() {
-              throw new Error("This is an error");
-          }
+    * **fallback**?: function 当错误发生时将被调用。该函数应返回一个 React 元素，用于显示错误信息或提供错误处理 UI。
 
-          function App() {
-              return (
-                  <ErrorBoundary fallback={() => "An error occurred"}>
-                      <MyComponent />
-                  </ErrorBoundary>
-              );
-          }
-      ```
-* **Async**: 异步组件
-  * **resolve**: () => Promise 异步加载完成后将返回 React 组件的数据。
-  * **component**: string 它是模块导出的View命名。
-  * **loadingComponent**?: React.ReactNode 异步加载完成之前要显示的加载中组件。
-  *   使用示例
+    使用示例
 
-      ```
-      import { Async } from "reaux";
-      import { Spin } from 'antd';
+    ```
+        import { ErrorBoundary } from "reaux";
+        function MyComponent() {
+            throw new Error("This is an error");
+        }
 
-      const AsyncLoadedComponent = Async(() => import(/* webpackChunkName: "my-component" */ 'modules/asyncComponent'), 'View', <Spin />);
+        function App() {
+            return (
+                <ErrorBoundary fallback={() => "An error occurred"}>
+                    <MyComponent />
+                </ErrorBoundary>
+            );
+        }
+    ```
+*   **Async**: 异步组件
 
-      function App() {
-          return (
-              <AsyncLoadedComponent />
-          )
-      }
-      ```
+    * **resolve**: () => Promise 异步加载完成后将返回 React 组件的数据。
+    * **component**: string 它是模块导出的View命名。
+    * **loadingComponent**?: React.ReactNode 异步加载完成之前要显示的加载中组件。
+
+    使用示例
+
+    ```
+    import { Async } from "reaux";
+    import { Spin } from 'antd';
+
+    const AsyncLoadedComponent = Async(() => import(/* webpackChunkName: "my-component" */ 'modules/asyncComponent'), 'View', <Spin />);
+
+    function App() {
+        return (
+            <AsyncLoadedComponent />
+        )
+    }
+    ```
 
 ### 生态
 
