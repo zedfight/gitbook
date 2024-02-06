@@ -32,7 +32,7 @@
 * `0 <= strs[i].length <= 100`
 * `strs[i]` 仅包含小写字母
 
-## 哈希和排序
+## 哈希+排序
 
 **思路及算法**
 
@@ -60,3 +60,28 @@ var groupAnagrams = function(strs) {
 
 * 时间复杂度：O(nklogk)，其中 n 是 strs 中的字符串的数量，k 是 str 字符串的最大长度。需要遍历 n 个字符串，对于每个字符串，需要 O(klogk) 的时间进行排序和 O(k) 的时间复杂度遍历字符串中的每个字符以及 O(1) 的时间更新哈希表，因此总时间复杂度是 O(nklogk)，如果 k 相对较小，也可以是 O(nk)。
 * 空间复杂度：O(nk)，其中 n 是 strs 中的字符串的数量，k 是 str 字符串的的最大长度。Map 中会有 n 个不同的键，每个键的长度最大为 k。因此，Map 的空间复杂度为 O(nk)。
+
+## 哈希+计数
+
+**思路及算法**
+
+将字符串中的每个字符使用 **charCodeAt** 转换成 Unicode 编码值并相加，编码值和作为 Map 的 key，字符串作为 Map 的 value。
+
+```typescript
+var groupAnagrams = function(strs) {
+    const map = new Object();
+    for (let s of strs) {
+        const count = new Array(26).fill(0);
+        for (let c of s) {
+            count[c.charCodeAt() - 'a'.charCodeAt()]++;
+        }
+        map[count] ? map[count].push(s) : map[count] = [s];
+    }
+    return Object.values(map);
+};
+```
+
+**复杂度分析**
+
+* 时间复杂度：O(nk)
+* 空间复杂度：O(nk)
