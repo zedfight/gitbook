@@ -12,4 +12,7 @@
 ## 双指针
 
 * [理论](shuang-zhi-zhen/li-lun.md)
-* [Page](shuang-zhi-zhen/page.md)
+* [移动零](shuang-zhi-zhen/yi-dong-ling.md)
+* [盛最多水的容器](shuang-zhi-zhen/sheng-zui-duo-shui-de-rong-qi.md)
+* [三数之和](shuang-zhi-zhen/san-shu-zhi-he.md)
+* [接雨水](shuang-zhi-zhen/jie-yu-shui.md)
