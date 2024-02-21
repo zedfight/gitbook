@@ -29,9 +29,13 @@
 
 **思路及算法**
 
+TODO
+
 **复杂度分析**
 
 ## 单调栈
+
+TODO
 
 **思路及算法**
 
@@ -41,4 +45,83 @@
 
 **思路及算法**
 
+1. 初始化变量：`ans` 用于存储结果，`left` 和 `right` 作为数组两端的指针，`preMax` 和 `sufMax` 用于追踪从左侧和右侧遇到的最大高度。
+2. 使用 while 循环遍历数组，直到 `left` 大于等于 `right`。
+3. 在循环中：
+   * 更新 `preMax` 和 `sufMax`，分别存储从左侧和右侧遇到的最大高度。
+   * 比较 `preMax` 和 `sufMax`。如果 `preMax` 小于 `sufMax`，意味着较小的一侧确定了当前的积水高度。将 `ans` 增加 `preMax` 与 `left` 处高度的差值，并将 `left` 指针向右移动。
+   * 如果 `sufMax` 小于或等于 `preMax`，将 `ans` 增加 `sufMax` 与 `right` 处高度的差值，并将 `right` 指针向左移动。
+4. 持续此过程直到 `left` 不再小于 `right`。
+5. 返回存储在 `ans` 中的最终结果。
+
+{% tabs %}
+{% tab title="1/12" %}
+<figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption><p>1</p></figcaption></figure>
+{% endtab %}
+
+{% tab title="2/12" %}
+<figure><img src="../.gitbook/assets/image (5).png" alt=""><figcaption><p>2</p></figcaption></figure>
+{% endtab %}
+
+{% tab title="3/12" %}
+<figure><img src="../.gitbook/assets/image (6).png" alt=""><figcaption><p>3</p></figcaption></figure>
+{% endtab %}
+
+{% tab title="4/12" %}
+<figure><img src="../.gitbook/assets/image (7).png" alt=""><figcaption><p>4</p></figcaption></figure>
+{% endtab %}
+
+{% tab title="5/12" %}
+<figure><img src="../.gitbook/assets/image (8).png" alt=""><figcaption><p>5</p></figcaption></figure>
+{% endtab %}
+
+{% tab title="6/12" %}
+<figure><img src="../.gitbook/assets/image (9).png" alt=""><figcaption><p>6</p></figcaption></figure>
+{% endtab %}
+
+{% tab title="7/12" %}
+<figure><img src="../.gitbook/assets/image (10).png" alt=""><figcaption><p>7</p></figcaption></figure>
+{% endtab %}
+
+{% tab title="8/12" %}
+<figure><img src="../.gitbook/assets/image (11).png" alt=""><figcaption><p>8</p></figcaption></figure>
+{% endtab %}
+
+{% tab title="9/12" %}
+<figure><img src="../.gitbook/assets/image (12).png" alt=""><figcaption><p>9</p></figcaption></figure>
+{% endtab %}
+
+{% tab title="10/12" %}
+<figure><img src="../.gitbook/assets/image (13).png" alt=""><figcaption><p>10</p></figcaption></figure>
+{% endtab %}
+
+{% tab title="11/12" %}
+<figure><img src="../.gitbook/assets/image (14).png" alt=""><figcaption><p>11</p></figcaption></figure>
+{% endtab %}
+
+{% tab title="12/12" %}
+<figure><img src="../.gitbook/assets/image (15).png" alt=""><figcaption><p>12</p></figcaption></figure>
+{% endtab %}
+{% endtabs %}
+
+```javascript
+var trap = function (height) {
+    let ans = 0, left = 0, right = height.length - 1, preMax = 0, sufMax = 0;
+    while (left < right) {
+        preMax = Math.max(preMax, height[left]);
+        sufMax = Math.max(sufMax, height[right]);
+        if (preMax < sufMax) {
+            ans += preMax - height[left++];
+        } else {
+            ans += sufMax - height[right--];
+        }
+    }
+    return ans; 
+｝
+```
+
 **复杂度分析**
+
+时间复杂度：O(n)
+
+空间复杂度：O(1)
