@@ -55,51 +55,51 @@ TODO
 5. 返回存储在 `ans` 中的最终结果。
 
 {% tabs %}
-{% tab title="1/12" %}
+{% tab title="1" %}
 <figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption><p>1</p></figcaption></figure>
 {% endtab %}
 
-{% tab title="2/12" %}
+{% tab title="2" %}
 <figure><img src="../.gitbook/assets/image (5).png" alt=""><figcaption><p>2</p></figcaption></figure>
 {% endtab %}
 
-{% tab title="3/12" %}
+{% tab title="3" %}
 <figure><img src="../.gitbook/assets/image (6).png" alt=""><figcaption><p>3</p></figcaption></figure>
 {% endtab %}
 
-{% tab title="4/12" %}
+{% tab title="4" %}
 <figure><img src="../.gitbook/assets/image (7).png" alt=""><figcaption><p>4</p></figcaption></figure>
 {% endtab %}
 
-{% tab title="5/12" %}
+{% tab title="5" %}
 <figure><img src="../.gitbook/assets/image (8).png" alt=""><figcaption><p>5</p></figcaption></figure>
 {% endtab %}
 
-{% tab title="6/12" %}
+{% tab title="6" %}
 <figure><img src="../.gitbook/assets/image (9).png" alt=""><figcaption><p>6</p></figcaption></figure>
 {% endtab %}
 
-{% tab title="7/12" %}
+{% tab title="7" %}
 <figure><img src="../.gitbook/assets/image (10).png" alt=""><figcaption><p>7</p></figcaption></figure>
 {% endtab %}
 
-{% tab title="8/12" %}
+{% tab title="8" %}
 <figure><img src="../.gitbook/assets/image (11).png" alt=""><figcaption><p>8</p></figcaption></figure>
 {% endtab %}
 
-{% tab title="9/12" %}
+{% tab title="9" %}
 <figure><img src="../.gitbook/assets/image (12).png" alt=""><figcaption><p>9</p></figcaption></figure>
 {% endtab %}
 
-{% tab title="10/12" %}
+{% tab title="10" %}
 <figure><img src="../.gitbook/assets/image (13).png" alt=""><figcaption><p>10</p></figcaption></figure>
 {% endtab %}
 
-{% tab title="11/12" %}
+{% tab title="11" %}
 <figure><img src="../.gitbook/assets/image (14).png" alt=""><figcaption><p>11</p></figcaption></figure>
 {% endtab %}
 
-{% tab title="12/12" %}
+{% tab title="12" %}
 <figure><img src="../.gitbook/assets/image (15).png" alt=""><figcaption><p>12</p></figcaption></figure>
 {% endtab %}
 {% endtabs %}
