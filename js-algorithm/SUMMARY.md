@@ -22,3 +22,8 @@
 * [理论](hua-dong-chuang-kou/li-lun.md)
 * [无重复字符的最长子串](hua-dong-chuang-kou/wu-zhong-fu-zi-fu-de-zui-chang-zi-chuan.md)
 * [找到字符串中所有字母异位词](hua-dong-chuang-kou/zhao-dao-zi-fu-chuan-zhong-suo-you-zi-mu-yi-wei-ci.md)
+
+## 子串
+
+* [理论](zi-chuan/li-lun.md)
+* [和为 K 的子数组](zi-chuan/he-wei-k-de-zi-shu-zu.md)
