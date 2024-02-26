@@ -56,27 +56,27 @@ TODO
 
 {% tabs %}
 {% tab title="1" %}
-<figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption><p>1</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3) (1).png" alt=""><figcaption><p>1</p></figcaption></figure>
 {% endtab %}
 
 {% tab title="2" %}
-<figure><img src="../.gitbook/assets/image (5).png" alt=""><figcaption><p>2</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (5) (1).png" alt=""><figcaption><p>2</p></figcaption></figure>
 {% endtab %}
 
 {% tab title="3" %}
-<figure><img src="../.gitbook/assets/image (6).png" alt=""><figcaption><p>3</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (6) (1).png" alt=""><figcaption><p>3</p></figcaption></figure>
 {% endtab %}
 
 {% tab title="4" %}
-<figure><img src="../.gitbook/assets/image (7).png" alt=""><figcaption><p>4</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (7) (1).png" alt=""><figcaption><p>4</p></figcaption></figure>
 {% endtab %}
 
 {% tab title="5" %}
-<figure><img src="../.gitbook/assets/image (8).png" alt=""><figcaption><p>5</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (8) (1).png" alt=""><figcaption><p>5</p></figcaption></figure>
 {% endtab %}
 
 {% tab title="6" %}
-<figure><img src="../.gitbook/assets/image (9).png" alt=""><figcaption><p>6</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (9) (1).png" alt=""><figcaption><p>6</p></figcaption></figure>
 {% endtab %}
 
 {% tab title="7" %}
