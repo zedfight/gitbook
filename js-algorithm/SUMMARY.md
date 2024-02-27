@@ -27,3 +27,7 @@
 
 * [理论](zi-chuan/li-lun.md)
 * [和为 K 的子数组](zi-chuan/he-wei-k-de-zi-shu-zu.md)
+
+## 数组
+
+* [最大子数组和](shu-zu/zui-da-zi-shu-zu-he.md)
