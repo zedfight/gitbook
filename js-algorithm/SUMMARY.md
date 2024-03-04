@@ -48,6 +48,6 @@
 
 * [岛屿数量](tu-lun/dao-yu-shu-liang.md)
 
-## 链表
+## 回溯
 
-* [相交链表](lian-biao-1/xiang-jiao-lian-biao.md)
+* [全排列](hui-su/quan-pai-lie.md)
