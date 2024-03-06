@@ -51,3 +51,7 @@
 ## 回溯
 
 * [全排列](hui-su/quan-pai-lie.md)
+
+## 二分查询
+
+* [搜索插入位置](er-fen-cha-xun/sou-suo-cha-ru-wei-zhi.md)
