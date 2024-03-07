@@ -55,3 +55,11 @@
 ## 二分查询
 
 * [搜索插入位置](er-fen-cha-xun/sou-suo-cha-ru-wei-zhi.md)
+
+## 栈
+
+* [有效的括号](zhan/you-xiao-de-kuo-hao.md)
+
+## 堆
+
+* [数组中的第K个最大元素](dui/shu-zu-zhong-de-dikge-zui-da-yuan-su.md)
