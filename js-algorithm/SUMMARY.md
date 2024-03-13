@@ -71,3 +71,11 @@
 ## 动态规划
 
 * [爬楼梯](dong-tai-gui-hua/pa-lou-ti.md)
+
+## 多维动态规划
+
+* [不同路径](duo-wei-dong-tai-gui-hua/bu-tong-lu-jing.md)
+
+## 技巧
+
+* [只出现一次数字](ji-qiao/zhi-chu-xian-yi-ci-shu-zi.md)
