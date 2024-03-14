@@ -34,7 +34,7 @@
 
 **思路及算法**
 
-相同的元素异或得0，而任何数与0异或仍得其本身。
+相同的元素异或得0，而任何数与0异或仍得其本身。转换成二进制进行计算。
 
 ```typescript
 function singleNumber(nums: number[]): number {
