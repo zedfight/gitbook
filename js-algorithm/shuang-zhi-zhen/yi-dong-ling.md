@@ -100,7 +100,7 @@ function moveZeroes(nums: number[]): void {
 
 ```typescript
 function moveZeroes(nums: number[]): void {
-    // nums[left] 和 nums[right] 之间要么相邻要么间隔 n 个 0
+    // nums[left] 和 nums[right] 之间要么重叠要么间隔 n 个 0
     // nums[left] 一定是 0，nums[right] 值一定不是 0
     let left = 0;
     let right = 0;
