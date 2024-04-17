@@ -34,13 +34,13 @@
 
 **思路及算法**
 
-使用两个指针，右指针先向右滑动，同时记录字符，并在滑动距离等于异位词长度时检查是否为异位词。然后，左指针向右滑动一位，将右指针滑动过程中记录的字符还原。重复这个过程直到遍历整个字符串。
+使用两个指针，右指针先向右滑动，同时记录字符，并在滑动距离等于异位词长度时检查是否为异位词。然后，左指针向右滑动一位，将右指针滑动过程中记录的字符还原。重复这个过程直到遍历整个字符串。注意count是记录是否匹配完异位词（也就是值为0时），只有在匹配完成时进行塞入数组。
 
 1. **初始化字符计数器：** 使用 Map 数据结构初始化字符计数器 charCount，遍历字符串p，对每个字符进行计数。
 2. **滑动窗口：** 使用两个指针 left 和 right 维护一个滑动窗口，初始时窗口大小为0。right 指针向右移动，同时更新字符计数器。
-3. **更新字符计数器：** 如果右指针指向的字符在字符计数器中，将其计数减一。如果减一后计数仍大于等于0，则表示匹配了一个字符，将计数器 count 减一。
+3. **更新字符计数器：** 如果右指针指向的字符在字符计数器中，将其计数减一。
 4. **检查窗口大小：** 当窗口大小等于字符串p的长度时，检查是否为异位词。如果 count 等于0，表示窗口内的字符正好匹配字符串p中的所有字符，将 left 指针的位置加入结果数组。
-5. **移动左指针：** 移动左指针 left，同时恢复字符计数器。如果左指针指向的字符在字符计数器中，将其计数加一。如果加一后计数大于0，则表示缺少了一个匹配的字符，将计数器 count 加一。
+5. **移动左指针：** 移动左指针 left，同时恢复字符计数器。如果左指针指向的字符在字符计数器中，将其计数加一。
 6. **重复：** 重复步骤2-5，直到右指针遍历完整个字符串s。
 
 ```typescript
@@ -60,14 +60,17 @@ function findAnagrams(s: string, p: string): number[] {
     while (right < s.length) {
         // 移动右指针，更新字符计数器
         if (charCount.has(s[right])) {
-            charCount.set(s[right], charCount.get(s[right])! - 1);
-            if (charCount.get(s[right])! >= 0) {
+            // charCount 初始状态从 1 开始，如果匹配了一个字符则 count 需要减 1，如果 charCount 小于 1（初始值）时就算匹配到了也不需要再减 1
+            // 为什么小于 1 就不需要减 1？说明当前字符已经被匹配完了，如果再次碰到以匹配的字符需要跳过当前逻辑
+            if (charCount.get(s[right])! >= 1) {
                 count--;
             }
+          
+            charCount.set(s[right], charCount.get(s[right])! - 1);
         }
-
+      
         right++;
-
+        
         // 当窗口大小等于p的长度时，检查是否为异位词
         if (right - left === p.length) {
             if (count === 0) {
@@ -77,7 +80,9 @@ function findAnagrams(s: string, p: string): number[] {
             // 移动左指针，恢复字符计数器
             if (charCount.has(s[left])) {
                 charCount.set(s[left], charCount.get(s[left])! + 1);
-                if (charCount.get(s[left])! > 0) {
+              
+                // 因为 count 只有在 charCount s[right] >= 1 时自减，所以当 charCount s[left] 数量加 1 后必须在 >= 1 的时候进行自增
+                if (charCount.get(s[left])! >= 1) {
                     count++;
                 }
             }
