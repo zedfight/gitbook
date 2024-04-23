@@ -2,7 +2,7 @@
 
 ![downloads](https://img.shields.io/npm/dt/reaux-dom.svg) ![version](https://img.shields.io/npm/v/reaux-dom.svg?style=flat) ![license](https://img.shields.io/npm/l/reaux-dom.svg)
 
-[Reaux-DOM](https://github.com/FE-Combo/reaux/tree/master/packages/reaux-dom) 是基于 Reaux 框架的客户端渲染（CSR）解决方案。框架继承了 Reaux 的特性，并添加了**全局异常处理（onError/onUnhandledRejection）**，集成了 **ErrorBoundary** 和 **Router** 组件，以及一系列实用**工具集（helper）**。这些功能使开发者能够更加灵活、高效地构建 CSR 应用。
+[Reaux-DOM](https://github.com/FE-Combo/reaux/tree/master/packages/reaux-dom) 是基于 [Reaux](https://zedfight.gitbook.io/fe-combo/reaux/reaux-she-ji-yuan-li) 框架的客户端渲染（CSR）解决方案。框架继承了 [Reaux](https://zedfight.gitbook.io/fe-combo/reaux/reaux-she-ji-yuan-li) 的特性，并添加了**全局异常处理（onError/onUnhandledRejection）**，集成了 **ErrorBoundary** 和 **Router** 组件，以及一系列实用**工具集（helper）**。这些功能使开发者能够更加灵活、高效地构建 CSR 应用。
 
 ### 安装
 
@@ -74,11 +74,11 @@ const {actions, View} = register(new ActionHandler("main", initialState), () => 
 });
 ```
 
-Reaux 将继承自 Model 的 ActionHandler 挂载到 React 组件，以执行 Model 中的生命周期函数。在 View 组件中，可以调用 actions 中的函数触发 ActionHandler 中的同步/异步函数。
+Reaux 将继承自 [Model](https://zedfight.gitbook.io/fe-combo/reaux/reaux-she-ji-yuan-li#model-luo-ji-ceng) 的 ActionHandler 挂载到 React 组件，以执行 Model 中的生命周期函数。在 View 组件中，可以调用 actions 中的函数触发 ActionHandler 中的同步/异步函数。
 
 **`参数`**
 
-**handler**: model 实例 - 继承自 Reaux Model
+**handler**: model 实例 - 继承自 [Reaux Model](https://zedfight.gitbook.io/fe-combo/reaux/reaux-she-ji-yuan-li#model-luo-ji-ceng)
 
 **View**: React.ReactNode - 一个 React 组件
 
@@ -86,7 +86,7 @@ Reaux 将继承自 Model 的 ActionHandler 挂载到 React 组件，以执行 Mo
 
 **actions**: 调度 Model 中同步/异步函数的一组指令
 
-**View**: 对入参 View 封装后生成的新 View（ModuleView）
+**View**: 对入参 View 封装后生成的新 View（[ModuleView](https://zedfight.gitbook.io/fe-combo/reaux/reaux-she-ji-yuan-li#moduleview)）
 
 **proxyLifeCycle**: 用于代理其他组件的生命周期
 
@@ -130,7 +130,7 @@ Reaux 将继承自 Model 的 ActionHandler 挂载到 React 组件，以执行 Mo
 
 ### Model 拓展
 
-React-DOM 中的 Model 继承了 Reaux Model 的特性，并增加了 **router** 属性：
+React-DOM 中的 Model 继承了 [Reaux Model](https://zedfight.gitbook.io/fe-combo/reaux/reaux-she-ji-yuan-li#model-luo-ji-ceng) 的特性，并增加了 **router** 属性：
 
 * **onReady**: 在 View 初始化完成后触发（只会在首次加载时触发，卸载后重新挂载不会再次触发）
 * **onLoad**: 与 componentDidMount 类似，View 加载后执行
@@ -149,7 +149,7 @@ React-DOM 中的 Model 继承了 Reaux Model 的特性，并增加了 **router**
 
 ### 状态树拓展
 
-React-DOM 中的状态继承了 Reaux 状态树 的内置状态，并增加了 **router** 状态。&#x20;
+React-DOM 中的状态继承了 [Reaux 状态树](https://zedfight.gitbook.io/fe-combo/reaux/reaux-she-ji-yuan-li#zhuang-tai-shu)的内置状态，并增加了 **router** 状态。&#x20;
 
 <figure><img src="../.gitbook/assets/Reaux-DOM状态树.png" alt=""><figcaption></figcaption></figure>
 
